@@ -1,0 +1,41 @@
+{
+  "name": "escalator",
+  "version": "0.0.1",
+  "description": "Invoke a repository dispatch event on a repository",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:server",
+    "format": "prettier --write src/**/*.ts",
+    "format-check": "prettier --check src/**/*.ts",
+    "lint": "eslint src/**/*.ts",
+    "dev": "npm run dev:server",
+    "start": "npm run start:server",
+    "test": "jest --passWithNoTests",
+    "build:server": "tsc",
+    "dev:server": "nodemon --exec 'npm run build:server && npm run start:server'",
+    "dist:server": "tsc --outDir dist/ && cp package-lock.json dist/ && cp package-dist.json dist/package.json",
+    "start:server": "node ./lib/index.js",
+    "build:function": "tsc && func extensions install",
+    "dev:function": "nodemon --exec 'npm run build:function && npm run start:function'",
+    "start:function": "func start"
+  },
+  "keywords": [],
+  "author": "Edward Thomson <ethomson@edwardthomson.com>",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "tsc": "^1.20150623.0"
+  },
+  "devDependencies": {
+    "@azure/functions": "^1.0.3",
+    "@types/node": "^13.1.2",
+    "eslint-plugin-github": "^3.4.0",
+    "eslint-plugin-jest": "^23.4.0",
+    "http": "0.0.0",
+    "querystring": "^0.2.0",
+    "typescript": "^3.7.4"
+  }
+}
