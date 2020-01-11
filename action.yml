@@ -1,0 +1,12 @@
+name: 'Escalator'
+description: 'Run a repository dispatch workflow from a different GitHub Actions workflow.'
+author: 'Edward Thomson'
+inputs:
+  url:
+    description: The url of the escalator server.
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: edit
+  color: blue
